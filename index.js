@@ -1,6 +1,6 @@
-var connect = require('connect');
-var app = connect();
+var connect = require('connect'),
+    fileServer = require('serve-static');
 
-module.exports = function() {
-  return app;
+module.exports = function(path) {
+  return connect().use(fileServer(path));
 };
